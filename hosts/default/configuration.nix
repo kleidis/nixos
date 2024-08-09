@@ -1,15 +1,18 @@
 { config, pkgs, inputs, ... }:
 
+# Not reccomended to touch anything on this fiel unless you knwo what you are doing
+# For settings you might wanan chnage go to common.nix
+
 {
   imports =
     [ # Includes all moduels in /modules/nix
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      ./modules/nixos/flatpak.nix
-      ./modules/nixos/packages.nix
-      ./modules/nixos/xorg.nix
-      ./modules/nixos/common.nix
-      ./modules/nixos/display-manager.nix
+      ./modules/nixos/flatpak.nix # Flatpak packages
+      ./modules/nixos/packages.nix # System packages
+      ./modules/nixos/xorg.nix # X11 settings
+      ./modules/nixos/common.nix # Common settings
+      ./modules/nixos/display-manager.nix # Display manageri.e login
     ];
 
   # Bootloader.
