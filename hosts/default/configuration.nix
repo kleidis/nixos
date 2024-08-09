@@ -29,6 +29,12 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Swap file
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # 16GB swap file
+  }];
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
