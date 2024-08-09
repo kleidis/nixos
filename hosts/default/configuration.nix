@@ -81,7 +81,7 @@
   };
   # Declarative flatpak
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.gnome-keyring ];
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -176,17 +176,21 @@
 
   # dbus
 
+  services.dbus.packages = [
+      pkgs.gnome-keyring
+      pkgs.pass-secret-service
+      pkgs.gcr
+    ];
+
   services.dbus.enable = true;
   services.upower.enable = true;
   services.dbus.implementation = "broker";
-
+  services.gnome.gnome-keyring.enable = true;
 
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Gnome keyring
-  services.gnome.gnome-keyring.enable = true;
 
   # High DPI
   services.xserver.dpi = 125;
@@ -195,10 +199,10 @@
      git
      awesome
      gh
-     pass-secret-service
      libsecret
      github-desktop
      polybarFull
+     polybar-pulseaudio-control
      libsForQt5.qtstyleplugin-kvantum
      xfce.thunar
      picom
@@ -216,7 +220,6 @@
      bluez
      eza
      kdePackages.qt6ct
-     dbus
      libsForQt5.qt5ct
      libnotify
      udiskie
@@ -227,6 +230,7 @@
      rofi
      font-awesome
      waypaper
+     ungoogled-chromium
      starship
      zoxide
      fuse

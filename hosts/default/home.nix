@@ -13,6 +13,11 @@
     ./modules/config/dunst.nix
   ];
 
+  services.pass-secret-service = {
+    enable = true;
+    package = pkgs.libsecret;
+  };
+
   # manage.
   home.username = "kleidis";
   home.homeDirectory = "/home/kleidis";
