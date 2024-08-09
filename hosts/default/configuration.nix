@@ -5,14 +5,15 @@
 
 {
   imports =
-    [ # Includes all moduels in /modules/nix
+    [ # Includes all modules in /modules/nix
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      ./modules/nixos/flatpak.nix # Flatpak packages
-      ./modules/nixos/packages.nix # System packages
-      ./modules/nixos/xorg.nix # X11 settings
-      ./modules/nixos/common.nix # Common settings
-      ./modules/nixos/display-manager.nix # Display manageri.e login
+      ../../modules/nixos/flatpak.nix # Flatpak packages
+      ../../modules/nixos/packages.nix # System packages
+      ../../modules/nixos/xorg.nix # X11 settings
+      ../../modules/nixos/common.nix # Common settings
+      ../../modules/nixos/display-manager.nix # Display manager i.e., login
+      ../../modules/nixos/lenovo-stuff.nix # Lenovo stuff (Remove for most people)
     ];
 
   # Bootloader.

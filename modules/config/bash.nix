@@ -13,6 +13,7 @@ in
       ls = "eza --icons";
       rebuild = "sudo nixos-rebuild switch  --flake ~/nixos/#default";
       update = "cd ~/nixos && nix flake update";
+      switch = "sudo nixos-rebuild switch --flake ~/nixos/#cosmic";
       clean = ''
         nix-collect-garbage --delete-old;
         sudo nix-collect-garbage --delete-older-than 30d;

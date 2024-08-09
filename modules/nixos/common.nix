@@ -20,6 +20,9 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kleidis";
 
+# Power Management
+  services.power-profiles-daemon.enable = true;
+
 # NTFS file system support (For Windows Partitions)
   boot.supportedFilesystems = [ "ntfs" ];
 }

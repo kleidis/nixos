@@ -3,14 +3,14 @@
 
 {
   imports = [
-    ./modules/config/alacritty.nix #Alacirty config
-    ./modules/config/bash.nix #Bash config
-    ./modules/config/awesome.nix #Awesome config
-    ./modules/config/polybar.nix #Polybar config
-    ./modules/config/rofi.nix #Rofi config
-    ./modules/config/picom.nix #Picom config
-    ./modules/config/themes.nix #Themes config
-    ./modules/config/dunst.nix #Dunst config
+    ../../modules/config/alacritty.nix #Alacirty config
+    ../../modules/config/bash.nix #Bash config
+    ../../modules/config/awesome.nix #Awesome config
+    ../../modules/config/polybar.nix #Polybar config
+    ../../modules/config/rofi.nix #Rofi config
+    ../../modules/config/picom.nix #Picom config
+    ../../modules/config/themes.nix #Themes config
+    ../../modules/config/dunst.nix #Dunst config
   ];
 
   # Do not touch this otheriwse your login will not work
