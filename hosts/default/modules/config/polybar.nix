@@ -20,8 +20,8 @@
         width = "99%";
         line-size = 1;
         line-color = "#f00";
-        border-size = 2;
-        border-color = "#11111b";
+        border-size = 1;
+        border-color = "#313244";
         padding = 2;
         module-margin = 1;
 
@@ -32,7 +32,7 @@
         offset-y = 10;
         modules-left = "power workspaces clock";
         modules-center = "current-window";
-        modules-right = "cpu memory temperature battery wifi bluetooth audio tray";
+        modules-right = "cpu memory temperature battery wifi bluetooth pulseaudio tray";
       };
 
       "module/workspaces" = {
@@ -139,17 +139,18 @@
         click-left = "blueman-manager";
       };
 
-      "module/audio" = {
-        type = "internal/volume";
-        format-volume = "<ramp-volume> <label-volume> |";
-        label-muted = "";
-        ramp-volume-0 = "";
-        ramp-volume-1 = "";
-        ramp-volume-2 = "";
-        label-volume = "%percentage%%";
-        click-left = "pavucontrol";
-        scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
+      "module/pulseaudio" = {
+        type = "custom/script";
+        tail = true;
+        format-underline = "#94e2d5";
+        label-padding = 2;
+        label-foreground = "#94e2d5";
+        exec = "pulseaudio-control --autosync --icon-muted  --icons-volume ,, --volume-max 100 listen";
+        click-right = "pavucontrol";
+        click-left = "pulseaudio-control togmute";
+        click-middle = "pulseaudio-control --node-blacklist \"alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2\" next-node";
+        scroll-up = "pulseaudio-control up";
+        scroll-down = "pulseaudio-control down";
       };
 
       "module/tray" = {
