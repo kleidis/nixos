@@ -11,9 +11,18 @@ in
     enable = true;
     shellAliases = {
       ls = "eza --icons";
-      rebuild = "sudo nixos-rebuild switch  --flake ~/nixos/#default";
       update = "cd ~/nixos && nix flake update";
-      switch = "sudo nixos-rebuild switch --flake ~/nixos/#cosmic";
+      switch = ''
+        #!/bin/bash
+        echo "Select a host configuration:"
+        select host in $(ls ~/nixos/hosts); do
+          break
+        done
+        sleep 0
+        switch="sudo nixos-rebuild switch --flake ~/nixos/#$host"
+        echo $switch
+        eval $switch
+      '';
       clean = ''
         nix-collect-garbage --delete-old;
         sudo nix-collect-garbage --delete-older-than 30d;

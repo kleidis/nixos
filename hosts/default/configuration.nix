@@ -12,7 +12,6 @@
       ../../modules/nixos/packages.nix # System packages
       ../../modules/nixos/xorg.nix # X11 settings
       ../../modules/nixos/common.nix # Common settings
-      ../../modules/nixos/display-manager.nix # Display manager i.e., login
       ../../modules/nixos/lenovo-stuff.nix # Lenovo stuff (Remove for most people)
     ];
 
@@ -68,6 +67,15 @@
   # XDG Portals
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.gnome-keyring ];
+
+  # Display Manager
+  # Set sddm as the display manager and awesome as the default session
+  services.displayManager.sddm.package = pkgs.pkgs.kdePackages.sddm;
+  services.displayManager.sddm.enable = true;
+  # SDDM catppuccin theme
+  services.displayManager.sddm.catppuccin.enable = true;
+  # Enable gnome keyring for sddm
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
