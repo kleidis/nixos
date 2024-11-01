@@ -6,7 +6,6 @@
   services.flatpak = {
     packages = [
       "com.github.tchx84.Flatseal"
-      "com.brave.Browser"
       "it.mijorus.gearlever"
       "org.qbittorrent.qBittorrent"
       "org.kde.KStyle.Kvantum/x86_64/5.15-22.08"

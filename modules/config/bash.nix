@@ -38,6 +38,7 @@ in
     };
     initExtra = ''
       eval "$(zoxide init bash)"
+      pfetch
     '';
   };
 

@@ -1,11 +1,15 @@
 { config, pkgs, inputs, ... }:
 
+
 {
   # You mostly want to install packages through here
+
+
   environment.systemPackages = with pkgs; [
       git
       vscode
       fastfetch
+      brave
       copyq
       feh
       (discord.override {
@@ -24,6 +28,9 @@
       dconf
       xclip
       alacritty
+      pfetch-rs
+      pciutils
+      looking-glass-client
       power-profiles-daemon
       gnome-disk-utility
       brightnessctl
@@ -33,6 +40,7 @@
       blueman
       bluez
       eza
+      remmina
       kdePackages.qt6ct
       libsForQt5.qt5ct
       libnotify
@@ -40,7 +48,7 @@
       pamixer
       playerctl
       pavucontrol
-      lxde.lxrandr
+      arandr
       rofi
       font-awesome
       waypaper
@@ -49,6 +57,7 @@
       fuse
       appimage-run
       nerdfonts
+      xdg-user-dirs
     ];
 
     # Fonts packages
@@ -56,4 +65,19 @@
       font-awesome
       nerdfonts
     ];
+
+    programs.spicetify =
+   let
+     spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
+   in
+   {
+     enable = true;
+     enabledExtensions = with spicePkgs.extensions; [
+       adblock
+       hidePodcasts
+       shuffle # shuffle+ (special characters are sanitized out of extension names)
+     ];
+     theme = spicePkgs.themes.catppuccin;
+     colorScheme = "mocha";
+   };
 }

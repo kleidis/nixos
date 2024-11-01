@@ -40,7 +40,7 @@
         wrapping-scroll = false;
         pin-workspaces = false;
         label-active = "%icon%";
-        label-active-background = "#89b4fa";
+        label-active-background = "#f38ba8";
         label-active-foreground = "#1e1e2e";
         label-active-padding = "13px";
         label-active-font = 4;
@@ -140,19 +140,19 @@
       };
 
       "module/pulseaudio" = {
-        type = "custom/script";
-        tail = true;
+        type = "internal/alsa";
+        format-volume = "<ramp-volume> <label-volume>";
+        interval = 5;
         format-underline = "#94e2d5";
         label-padding = 2;
         label-foreground = "#94e2d5";
-        exec = "pulseaudio-control --autosync --icon-muted  --icons-volume ,, --volume-max 100 listen";
-        click-right = "pavucontrol";
-        click-left = "pulseaudio-control togmute";
-        click-middle = "pulseaudio-control --node-blacklist \"alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2\" next-node";
-        scroll-up = "pulseaudio-control up";
-        scroll-down = "pulseaudio-control down";
+        label-muted = "";
+        ramp-volume-0 = "";
+        ramp-volume-1 = "";
+        ramp-volume-2 = "";
+        ramp-headphones-0 = "";
+        ramp-headphones-1 = "";
       };
-
       "module/tray" = {
         type = "internal/tray";
         format = "<tray>";

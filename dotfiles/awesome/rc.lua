@@ -348,13 +348,13 @@ globalkeys = gears.table.join(
               {description = "open Thunar file manager", group = "launcher"}),
     awful.key({ modkey }, "c", function () awful.spawn("code") end,
               {description = "open VS Code", group = "launcher"}),
-    awful.key({ modkey }, "f", function () awful.spawn("flatpak run com.brave.Browser") end,
+    awful.key({ modkey }, "f", function () awful.spawn("brave") end,
               {description = "open Brave Browser", group = "launcher"}),
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn("pamixer -i 5") end,
+    awful.key({ }, "123", function () awful.spawn("pamixer -i 5") end,
               {description = "increase volume", group = "media"}),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn("pamixer -d 5") end,
+    awful.key({ }, "122", function () awful.spawn("pamixer -d 5") end,
               {description = "decrease volume", group = "media"}),
-    awful.key({ }, "XF86AudioMute", function () awful.spawn("pamixer -t") end,
+    awful.key({ }, "121", function () awful.spawn("pamixer -t") end,
               {description = "toggle mute", group = "media"}),
     awful.key({ }, "XF86AudioPlay", function () awful.spawn("playerctl play-pause") end,
               {description = "play/pause media", group = "media"}),
@@ -594,8 +594,8 @@ awful.rules.rules = {
     --My workspace rules
 
 
-    { rule = { class = "Polybar" },
-      properties = { border_width = 0 } },
+  { rule = { class = "Polybar" },
+    properties = { border_width = 0, focusable = false } },
 
     { rule = { },
       properties = { screen = 1, tag = "6" } },

@@ -16,11 +16,18 @@
   # Xinit commands
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-    Xft.dpi: 125
     EOF
+    xrandr --output eDP-1 --off \
+          --output HDMI-1 --primary --mode 1920x1080 --rate 239.96 --pos 0x0 --rotate normal \
+          --gamma 0.75:0.75:0.75
     waypaper --restore &
     systemctl --user --now start AutostartApps
   '';
+
+  services.xserver.deviceSection = ''
+  Option "TearFree" "False"
+  Option "VariableRefresh" "True"
+'';
 
   # Greenclip for rofi
   services.greenclip.enable = true;
@@ -30,7 +37,4 @@
     layout = "us";
     xkbVariant = "";
   };
-
-  # High DPI for x11
-  services.xserver.dpi = 125;
 }

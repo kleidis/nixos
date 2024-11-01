@@ -4,7 +4,7 @@
     catppuccin = {
       enable = true;
       flavor = "mocha";
-      accent = "blue";
+      accent = "red";
       size = "standard";
       tweaks = [ "normal" ];
       icon = {
@@ -25,8 +25,16 @@
       catppuccin = {
         enable = true;
         flavor = "mocha";
-        accent = "blue";
+        accent = "red";
       };
     };
   };
+  programs = {
+    alacritty= {
+      catppuccin  = {
+        enable = true;
+      };
+    };
+  };
+
 }

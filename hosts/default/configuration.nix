@@ -13,6 +13,8 @@
       ../../modules/nixos/xorg.nix # X11 settings
       ../../modules/nixos/common.nix # Common settings
       ../../modules/nixos/lenovo-stuff.nix # Lenovo stuff (Remove for most people)
+      ../../modules/nixos/vfio-nvidia.nix # VFIO Nvidia
+      ../../modules/nixos/vm.nix # Virtualisation
     ];
 
   # Bootloader.
@@ -24,6 +26,12 @@
     efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # VFIO
+  specialisation."VFIO".configuration = {
+      system.nixos.tags = [ "with-vfio" ];
+      vfio.enable = true;
+    };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
