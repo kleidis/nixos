@@ -18,7 +18,6 @@
       awesome
       gh
       libsecret
-      github-desktop
       polybarFull
       polybar-pulseaudio-control
       libsForQt5.qtstyleplugin-kvantum
@@ -56,14 +55,13 @@
       zoxide
       fuse
       appimage-run
-      nerdfonts
       xdg-user-dirs
     ];
 
     # Fonts packages
     fonts.packages = with pkgs; [
       font-awesome
-      nerdfonts
+      nerd-fonts.droid-sans-mono
     ];
 
     programs.spicetify =
