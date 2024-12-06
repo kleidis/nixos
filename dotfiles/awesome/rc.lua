@@ -350,6 +350,8 @@ globalkeys = gears.table.join(
               {description = "open VS Code", group = "launcher"}),
     awful.key({ modkey }, "f", function () awful.spawn("brave") end,
               {description = "open Brave Browser", group = "launcher"}),
+    awful.key({ modkey }, "l", function () awful.spawn("i3lock  10 10 pixel") end,
+              {description = "Lock screen", group = "launcher"}),
     awful.key({ }, "123", function () awful.spawn("pamixer -i 5") end,
               {description = "increase volume", group = "media"}),
     awful.key({ }, "122", function () awful.spawn("pamixer -d 5") end,

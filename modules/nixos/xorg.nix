@@ -17,9 +17,9 @@
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
     EOF
-    xrandr --output eDP-1 --off \
-          --output HDMI-1 --primary --mode 1920x1080 --rate 239.96 --pos 0x0 --rotate normal \
-          --gamma 0.75:0.75:0.75
+    xrandr --output eDP --off \
+          --output HDMI-A-0 --primary --mode 1920x1080 --rate 239.96 --pos 0x0 --rotate normal \
+          --gamma 0.80:0.80:0.80
     waypaper --restore &
     systemctl --user --now start AutostartApps
   '';

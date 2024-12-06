@@ -15,6 +15,7 @@
       ../../modules/nixos/lenovo-stuff.nix # Lenovo stuff (Remove for most people)
       ../../modules/nixos/vfio-nvidia.nix # VFIO Nvidia
       ../../modules/nixos/vm.nix # Virtualisation
+      ../../modules/nixos/nvidia.nix # Nvidia
     ];
 
   # Bootloader.
@@ -120,6 +121,13 @@
       ];
     };
   };
+
+  # Enable docker
+    virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
 
   # polkit
     security.polkit.enable = true;

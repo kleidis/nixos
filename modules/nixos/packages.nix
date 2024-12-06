@@ -39,6 +39,7 @@
       blueman
       bluez
       eza
+      i3lock-fancy-rapid
       remmina
       kdePackages.qt6ct
       libsForQt5.qt5ct
@@ -52,6 +53,9 @@
       font-awesome
       waypaper
       starship
+      android-studio
+      lazygit
+      distrobox
       zoxide
       fuse
       appimage-run
@@ -78,4 +82,21 @@
      theme = spicePkgs.themes.catppuccin;
      colorScheme = "mocha";
    };
+
+  # Plex media server
+   services.plex = {
+    enable = true;
+    openFirewall = true;
+    user="kleidis";
+  };
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+
 }
