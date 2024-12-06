@@ -71,7 +71,7 @@
         type = "internal/date";
         interval = 5;
         time = "%I:%M";
-        label = "| %{T7}%{T-} %{T1}%time%";
+        label = "|  %{T7}%{T-} %{T1}%time%";
         label-padding = 0;
         label-foreground = "#89b4fa";
       };
@@ -141,7 +141,7 @@
 
       "module/pulseaudio" = {
         type = "internal/alsa";
-        format-volume = "<ramp-volume> <label-volume>";
+        format-volume = "<ramp-volume> <label-volume> |";
         interval = 5;
         format-underline = "#94e2d5";
         label-padding = 2;
