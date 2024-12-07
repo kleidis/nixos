@@ -7,6 +7,10 @@ let
 in
 
 {
+  programs.starship = {
+    enable = true;
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -39,15 +43,18 @@ in
     initExtra = ''
       eval "$(zoxide init bash)"
       pfetch
+      source "$(blesh-share)"/ble.sh --attach=none
+      [[ ! $"{BLE_VERSION-}" ]] || ble-attach
     '';
   };
 
 
-  programs.starship = {
-    enable = true;
-  };
 
   home.file."${config.home.homeDirectory}/.config/starship.toml" = {
     source = ../../dotfiles/starship.toml;
+  };
+
+  home.file."${config.home.homeDirectory}/.blerc" = {
+    source = ../../dotfiles/.blerc;
   };
 }

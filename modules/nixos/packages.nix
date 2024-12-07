@@ -50,6 +50,10 @@
       pavucontrol
       arandr
       rofi
+      mpv-unwrapped
+      qview
+      peazip
+      woeusb-ng
       font-awesome
       waypaper
       starship
@@ -98,5 +102,13 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  # Enable the direnv package
+  programs.direnv.enable = true;
+
+  # JAVA
+  programs.java = {
+  enable = true;
+  package = pkgs.jdk17; # Or pkgs.jdk21 depending on your preference
+};
 
 }
