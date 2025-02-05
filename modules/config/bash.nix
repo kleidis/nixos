@@ -54,7 +54,4 @@ in
     source = ../../dotfiles/starship.toml;
   };
 
-  home.file."${config.home.homeDirectory}/.blerc" = {
-    source = ../../dotfiles/.blerc;
-  };
 }
