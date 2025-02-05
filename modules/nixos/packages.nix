@@ -7,12 +7,14 @@
 
   environment.systemPackages = with pkgs; [
       git
-      vscode
-      fastfetch
+      code-cursor
+      zed-editor
+      pfetch-rs
+      ibrewolf-bin
       brave
       copyq
       feh
-      (discord.override {
+      (discord-canary.override {
         withVencord = true;
       })
       awesome
@@ -32,10 +34,8 @@
       looking-glass-client
       power-profiles-daemon
       gnome-disk-utility
-      brightnessctl
       upower
       gvfs
-      xdg-user-dirs
       blueman
       bluez
       eza
@@ -48,7 +48,6 @@
       pamixer
       playerctl
       pavucontrol
-      arandr
       rofi
       mpv-unwrapped
       qview
@@ -57,13 +56,12 @@
       font-awesome
       waypaper
       starship
-      android-studio
+      androidStudioPackages.beta
       lazygit
       distrobox
       zoxide
       fuse
       appimage-run
-      xdg-user-dirs
     ];
 
     # Fonts packages
@@ -102,13 +100,10 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  # Enable the direnv package
-  programs.direnv.enable = true;
-
   # JAVA
   programs.java = {
   enable = true;
-  package = pkgs.jdk17; # Or pkgs.jdk21 depending on your preference
+  package = pkgs.jdk17;
 };
 
 }

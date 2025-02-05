@@ -22,7 +22,7 @@
     };
   };
 
-  # Generate the Catppuccin Mocha theme file in the user's home directory
+  # Set alacritty as default for thuanr file explorer
   home.file = {
     ".config/xfce4/helpers.rc" = {
       text = ''

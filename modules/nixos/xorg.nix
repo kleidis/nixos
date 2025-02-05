@@ -18,14 +18,13 @@
     ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
     EOF
     xrandr --output eDP --off \
-          --output HDMI-A-0 --primary --mode 1920x1080 --rate 239.96 --pos 0x0 --rotate normal \
-          --gamma 0.80:0.80:0.80
+          --output HDMI-A-0 --primary --mode 1920x1080 --rate 239.96 --pos 0x0 --rotate normal
     waypaper --restore &
     systemctl --user --now start AutostartApps
   '';
 
   services.xserver.deviceSection = ''
-  Option "TearFree" "False"
+  Option "TearFree" "True"
   Option "VariableRefresh" "True"
 '';
 

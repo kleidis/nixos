@@ -44,7 +44,7 @@
   home.file = {};
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # EDITOR = "zed";
   };
 
   # Let Home Manager install and manage itself.
